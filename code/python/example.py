@@ -8,8 +8,8 @@ MATCH (m:Movie {title:$movieTitle})<-[:ACTED_IN]-(a:Person) RETURN a.name as act
 '''
 
 with GraphDatabase.driver(
-    "neo4j+s://demo.neo4jlabs.com:7687",
-    auth=("mUser", "s3cr3t")
+    "neo4j://localhost:7687",
+    auth=("neo4j", "neo4j")
 ) as driver:
     result = driver.execute_query(
         cypher_query,
